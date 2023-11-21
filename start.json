@@ -1,0 +1,36 @@
+{
+  "daemon": true,
+  "run": [
+    {
+      "method": "shell.run",
+      "params": {
+        "path": "app",
+        "venv": "venv",
+        "message": [
+          "streamlit run scripts/sampling/simple_video_sample.py -- --device mps --decoding_t 1 --version svd_image_decoder"
+        ],
+        "on": [
+          {
+            "event": "/https?:\/\/[0-9.:]+/",
+            "done": true
+          }
+        ]
+      }
+    },
+    {
+      "method": "self.set",
+      "params": {
+        "session.json": {
+          "url": "{{input.event[0]}}"
+        }
+      }
+    },
+    {
+      "method": "browser.open",
+      "params": {
+        "uri": "{{self.session.url}}",
+        "target": "_blank"
+      }
+    }
+  ]
+}
