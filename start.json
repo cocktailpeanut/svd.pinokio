@@ -1,36 +1,31 @@
 {
   "daemon": true,
-  "run": [
-    {
-      "method": "shell.run",
-      "params": {
-        "path": "app",
-        "venv": "venv",
-        "message": [
-          "streamlit run scripts/sampling/simple_video_sample.py -- --device mps --decoding_t 1 --version svd_image_decoder"
-        ],
-        "on": [
-          {
-            "event": "/https?:\/\/[0-9.:]+/",
-            "done": true
-          }
-        ]
-      }
-    },
-    {
-      "method": "self.set",
-      "params": {
-        "session.json": {
-          "url": "{{input.event[0]}}"
-        }
-      }
-    },
-    {
-      "method": "browser.open",
-      "params": {
-        "uri": "{{self.session.url}}",
-        "target": "_blank"
+  "run": [{
+    "method": "shell.run",
+    "params": {
+      "path": "generative-models",
+      "venv": "venv",
+      "env": {
+        "STREAMLIT_SERVER_HEADLESS": "true"
+      },
+      "message": "streamlit run scripts/demo/video_sampling.py",
+      "on": [{
+        "event": "/network url:.*?(http:\/\/[0-9.:]+)/gi",
+        "done": true
+      }]
+    }
+  }, {
+    "method": "self.set",
+    "params": {
+      "session.json": {
+        "url": "{{input.event[1]}}"
       }
     }
-  ]
+  }, {
+    "method": "browser.open",
+    "params": {
+      "uri": "{{self.session.url}}",
+      "target": "_blank"
+    }
+  }]
 }

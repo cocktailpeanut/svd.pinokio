@@ -1,37 +1,35 @@
 {
+  "requires": [{
+    "type": "conda",
+    "name": "ffmpeg",
+    "args": "-c conda-forge"
+  }],
   "run": [{
     "method": "shell.run",
-    "params": { "message": "git clone https://github.com/Stability-AI/generative-models app" }
+    "params": {
+      "message": "git clone https://github.com/cocktailpeanut/generative-models"
+    }
+  }, {
+    "method": "fs.download",
+    "params": {
+      "uri": "https://huggingface.co/stabilityai/stable-video-diffusion-img2vid/resolve/main/svd.safetensors",
+      "dir": "generative-models/checkpoints"
+    }
   }, {
     "method": "shell.run",
     "params": {
       "venv": "venv",
-      "path": "app",
       "message": [
-        "pip install streamlit",
-        "pip install -e .",
-        "{{pip.install.torch}}",
-        "pip install -r ../pt13.txt",
-        "mkdir checkpoints"
-      ]
-    }
-  }, {
-    "method": "fs.download",
-    "params": {
-      "uri": "https://huggingface.co/stabilityai/stable-video-diffusion-img2vid/resolve/main/svd.safetensors?download=true",
-      "dir": "checkpoints"
-    }
-  }, {
-    "method": "fs.download",
-    "params": {
-      "uri": "https://huggingface.co/stabilityai/stable-video-diffusion-img2vid/resolve/main/svd_image_decoder.safetensors?download=true",
-      "dir": "checkpoints"
+        "pip install -r requirements/{{platform === 'darwin' ? 'ptdarwin.txt' : 'pt13.txt'}}",
+        "pip install -e ."
+      ],
+      "path": "generative-models"
     }
   }, {
     "method": "input",
     "params": { "title": "Install Success", "description": "Go back to the dashboard and launch the app!" }
   }, {
     "method": "browser.open",
-    "params": { "uri": "/?selected=stable video diffusion" }
+    "params": { "uri": "/?selected=SVD" }
   }]
 }

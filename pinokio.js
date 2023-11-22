@@ -1,7 +1,7 @@
 module.exports = {
-  title: "Stable Video Diffusion",
+  title: "SVD",
   menu: async (kernel) => {
-    let installed = await kernel.exists(__dirname, "app", "venv")
+    let installed = await kernel.exists(__dirname, "generative-models", "venv")
     if (installed) {
       let running = await kernel.running(__dirname, "start.json")
       if (running) {
