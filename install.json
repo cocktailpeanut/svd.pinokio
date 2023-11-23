@@ -7,7 +7,7 @@
   "run": [{
     "method": "shell.run",
     "params": {
-      "message": "git clone https://github.com/cocktailpeanut/generative-models"
+      "message": "git clone https://github.com/cocktailpeanutlabs/generative-models"
     }
   }, {
     "method": "fs.download",
@@ -19,10 +19,7 @@
     "method": "shell.run",
     "params": {
       "venv": "venv",
-      "message": [
-        "pip install -r requirements/{{platform === 'darwin' ? 'ptdarwin.txt' : 'pt13.txt'}}",
-        "pip install -e ."
-      ],
+      "message": [ "pip install -r pt2.txt", "pip install -e ." ],
       "path": "generative-models"
     }
   }, {
@@ -30,6 +27,6 @@
     "params": { "title": "Install Success", "description": "Go back to the dashboard and launch the app!" }
   }, {
     "method": "browser.open",
-    "params": { "uri": "/?selected=SVD" }
+    "params": { "uri": "/?selected=Stable Video Diffusion" }
   }]
 }
