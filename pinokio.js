@@ -29,7 +29,7 @@ module.exports = {
         */
       } else {
         return [
-          { icon: "fa-solid fa-power-off", text: "Run Streamlit", href: "start.json", params: { fullscreen: true, run: true } },
+          { icon: "fa-solid fa-power-off", text: "Start", href: "start.json", params: { fullscreen: true, run: true } },
 //          { icon: "fa-solid fa-power-off", text: "Run Gradio", href: "gradio.json", params: { fullscreen: true, run: true } }
         ]
       }
