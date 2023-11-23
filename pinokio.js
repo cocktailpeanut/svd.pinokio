@@ -6,31 +6,18 @@ module.exports = {
     let installed = await kernel.exists(__dirname, "generative-models", "venv")
     if (installed) {
       let streamlit_running = await kernel.running(__dirname, "start.json")
-//      let gradio_running = await kernel.running(__dirname, "gradio.json")
-//      let running = streamlit_running || gradio_running
       let running = streamlit_running
       if (running) {
         return [
           { icon: "fa-solid fa-spin fa-circle-notch", text: "Running" },
           { icon: "fa-solid fa-terminal", text: "Terminal", href: "start.json" },
+          { icon: "fa-solid fa-file-arrow-down", text: "Download SVD-XT Model", href: "xt.json", params: { fullscreen: true, run: true } },
         ]
-        /*
-        if (gradio_running) {
-          return [
-            { icon: "fa-solid fa-spin fa-circle-notch", text: "Gradio Running" },
-            { icon: "fa-solid fa-terminal", text: "Terminal", href: "gradio.json" }
-          ]
-        } else if (streamlit_running) {
-          return [
-            { icon: "fa-solid fa-spin fa-circle-notch", text: "Streamlit Running" },
-            { icon: "fa-solid fa-terminal", text: "Terminal", href: "start.json" },
-          ]
-        }
         */
       } else {
         return [
           { icon: "fa-solid fa-power-off", text: "Start", href: "start.json", params: { fullscreen: true, run: true } },
-//          { icon: "fa-solid fa-power-off", text: "Run Gradio", href: "gradio.json", params: { fullscreen: true, run: true } }
+          { icon: "fa-solid fa-file-arrow-down", text: "Download SVD-XT Model", href: "xt.json", params: { fullscreen: true, run: true } },
         ]
       }
     } else {

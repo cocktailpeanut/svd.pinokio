@@ -5,5 +5,11 @@
       "uri": "https://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt/resolve/main/svd_xt.safetensors?download=true",
       "dir": "generative-models/checkpoints"
     }
+  }, {
+    "method": "input",
+    "params": { "title": "Download Complete", "description": "Go back to the dashboard and launch the app!" }
+  }, {
+    "method": "browser.open",
+    "params": { "uri": "/?selected=Stable Video Diffusion" }
   }]
 }
