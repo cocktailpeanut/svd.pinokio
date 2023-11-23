@@ -1,5 +1,7 @@
 module.exports = {
   title: "Stable Video Diffusion",
+  description: "Stable Video Diffusion Streamlit App",
+  icon: "icon.gif",
   menu: async (kernel) => {
     let installed = await kernel.exists(__dirname, "generative-models", "venv")
     if (installed) {
