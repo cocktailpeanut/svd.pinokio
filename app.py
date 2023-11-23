@@ -76,7 +76,7 @@ def sample(
     fps_id: int = 6,
     version: str = "svd_xt",
     cond_aug: float = 0.02,
-    decoding_t: int = 7,  # Number of frames decoded at a time! This eats most VRAM. Reduce if necessary.
+    decoding_t: int = 1,  # Number of frames decoded at a time! This eats most VRAM. Reduce if necessary.
     device: str = "cuda",
     output_folder: str = "outputs",
     progress=gr.Progress(track_tqdm=True)
