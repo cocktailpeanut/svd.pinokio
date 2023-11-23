@@ -10,6 +10,12 @@
       "message": "git clone https://github.com/cocktailpeanutlabs/generative-models"
     }
   }, {
+    "method": "fs.copy",
+    "params": {
+      "src": "app.py",
+      "dest": "generative-models/app.py"
+    }
+  }, {
     "method": "fs.download",
     "params": {
       "uri": "https://huggingface.co/stabilityai/stable-video-diffusion-img2vid/resolve/main/svd.safetensors",
@@ -20,6 +26,7 @@
     "params": {
       "venv": "venv",
       "message": [
+        "pip install gradio huggingface_hub",
         "pip install -r requirements/pt2-{{platform}}.txt",
         "pip install -e ."
       ],
