@@ -1,6 +1,6 @@
 module.exports = {
   title: "Stable Video Diffusion",
-  description: "Stable Video Diffusion Streamlit App",
+  description: "[NVIDIA ONLY] Stable Video Diffusion Streamlit App. Currently supports Nvidia GPU machines only.",
   icon: "icon.gif",
   menu: async (kernel) => {
     let installed = await kernel.exists(__dirname, "generative-models", "venv")
