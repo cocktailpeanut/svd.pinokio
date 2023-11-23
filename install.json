@@ -20,8 +20,7 @@
     "params": {
       "venv": "venv",
       "message": [
-        "pip install torch torchvision torchaudio {{platform==='win32' ? '--index-url https://download.pytorch.org/whl/cu118' : ''}}",
-        "pip install -r requirements/pt2.txt",
+        "pip install -r requirements/pt2-{{platform}}.txt",
         "pip install -e ."
       ],
       "path": "generative-models"
