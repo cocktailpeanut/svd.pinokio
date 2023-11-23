@@ -19,7 +19,7 @@
     "method": "shell.run",
     "params": {
       "venv": "venv",
-      "message": [ "pip install -r requirements/pt2.txt", "pip install -e ." ],
+      "message": [ "pip install -r requirements/pt2-{{platform}}.txt", "pip install -e ." ],
       "path": "generative-models"
     }
   }, {
