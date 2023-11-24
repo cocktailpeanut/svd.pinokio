@@ -5,15 +5,13 @@ module.exports = {
   menu: async (kernel) => {
     let installed = await kernel.exists(__dirname, "generative-models", "venv")
     if (installed) {
-      let streamlit_running = await kernel.running(__dirname, "start.json")
-      let running = streamlit_running
+      let running = await kernel.running(__dirname, "start.json")
       if (running) {
         return [
           { icon: "fa-solid fa-spin fa-circle-notch", text: "Running" },
           { icon: "fa-solid fa-terminal", text: "Terminal", href: "start.json" },
           { icon: "fa-solid fa-file-arrow-down", text: "Download SVD-XT Model", href: "xt.json", params: { fullscreen: true, run: true } },
         ]
-        */
       } else {
         return [
           { icon: "fa-solid fa-power-off", text: "Start", href: "start.json", params: { fullscreen: true, run: true } },
