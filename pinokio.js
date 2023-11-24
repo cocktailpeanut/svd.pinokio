@@ -10,12 +10,10 @@ module.exports = {
         return [
           { icon: "fa-solid fa-spin fa-circle-notch", text: "Running" },
           { icon: "fa-solid fa-terminal", text: "Terminal", href: "start.json" },
-          { icon: "fa-solid fa-file-arrow-down", text: "Download SVD-XT Model", href: "xt.json", params: { fullscreen: true, run: true } },
         ]
       } else {
         return [
           { icon: "fa-solid fa-power-off", text: "Start", href: "start.json", params: { fullscreen: true, run: true } },
-          { icon: "fa-solid fa-file-arrow-down", text: "Download SVD-XT Model", href: "xt.json", params: { fullscreen: true, run: true } },
         ]
       }
     } else {
